@@ -14,6 +14,8 @@ import rx.schedulers.Schedulers;
 
 public class TimerPresenter extends BaseLifecyclePresenter<TimerView> {
 
+	private final static String TAG = TimerPresenter.class.getSimpleName();
+
 	@Override
 	public void attachView(TimerView view) {
 		super.attachView(view);
@@ -34,17 +36,17 @@ public class TimerPresenter extends BaseLifecyclePresenter<TimerView> {
 			if (isViewAttached()) {
 				getView().updateTimerValue(timerValue.intValue());
 			}
-			Log.d("SUMERA", "ON NEXT " + timerValue);
+			Log.d(TAG, "ON NEXT " + timerValue);
 		}
 
 		@Override
 		public void onCompleted() {
-			Log.d("SUMERA", "COMPLETE");
+			Log.d(TAG, "COMPLETE");
 		}
 
 		@Override
 		public void onError(Throwable e) {
-			Log.e("SUMERA", e.toString());
+			Log.e(TAG, e.toString());
 		}
 	};
 
